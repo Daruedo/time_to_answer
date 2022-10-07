@@ -1,8 +1,9 @@
 # Ruby on Rails 5
 
-The Rail Way
-DRY - Don'nt Repeat Yourself
-Convention Onver Configuration
+Boas práticas:
+- The Rail Way
+- DRY - Don'nt Repeat Yourself
+- Convention Over Configuration
 
 <a href="https://www.udemy.com/course/rubyonrails-5x/" target="_blank">Udemy</a>
 ## Ruby:
