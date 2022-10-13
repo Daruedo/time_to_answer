@@ -2,20 +2,23 @@
 
 Aplicação de criptomoeda
 
-Rails version: 5.2.8.1
-Ruby version: 2.7.6 (x64-mingw32)
+- Rails version: 5.2.8.1
+- Ruby version: 2.7.6 (x64-mingw32)
 
 ## Tecnologias:
 
-Linguagem Ruby
-Framework Ruby on Rails
-Banco de dados Sqlite
+- Linguagem Ruby
+- Framework Ruby on Rails
+- Banco de dados Sqlite
 
 ### Comandos:
-
+```
 rails _5.2_ new crypto_wallet
+```
 
+```
 rails server
+```
 
 rails db:drop
 rails db:drop:_unsafe
