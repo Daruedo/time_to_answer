@@ -1,4 +1,5 @@
 class MiningTypesController < ApplicationController
+  layout "adm"
   before_action :set_mining_type, only: %i[ show edit update destroy ]
 
   # GET /mining_types or /mining_types.json
@@ -25,7 +26,7 @@ class MiningTypesController < ApplicationController
 
     respond_to do |format|
       if @mining_type.save
-        format.html { redirect_to mining_type_url(@mining_type), notice: "Mining type was successfully created." }
+        format.html { redirect_to mining_type_url(@mining_type), notice: "O tipo de mineração foi criado com sucesso." }
         format.json { render :show, status: :created, location: @mining_type }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +39,7 @@ class MiningTypesController < ApplicationController
   def update
     respond_to do |format|
       if @mining_type.update(mining_type_params)
-        format.html { redirect_to mining_type_url(@mining_type), notice: "Mining type was successfully updated." }
+        format.html { redirect_to mining_type_url(@mining_type), notice: "O tipo de mineração foi atualizado com sucesso." }
         format.json { render :show, status: :ok, location: @mining_type }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +53,7 @@ class MiningTypesController < ApplicationController
     @mining_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to mining_types_url, notice: "Mining type was successfully destroyed." }
+      format.html { redirect_to mining_types_url, notice: "O tipo de mineração foi apagado com sucesso." }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,6 @@ class MiningTypesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mining_type_params
-      params.require(:mining_type).permit(:name, :acronym)
+      params.require(:mining_type).permit(:description, :acronym)
     end
 end

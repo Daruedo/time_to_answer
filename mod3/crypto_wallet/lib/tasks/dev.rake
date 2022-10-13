@@ -5,8 +5,8 @@ namespace :dev do
       show_spinner("Apagando DB...") {%x(rails db:drop:_unsafe)}
       show_spinner("Criando DB...") {%x(rails db:create)}
       show_spinner("Migrando DB...") {%x(rails db:migrate)}
-      %x(rails dev:add_coins)
       %x(rails dev:add_mining_types)
+      %x(rails dev:add_coins)
     else
       puts "Você não está em modo desenvolvimento!"
     end
@@ -19,18 +19,63 @@ namespace :dev do
         {
           description: "Bitcoin",
           acronym: "BTC",
-          url_image: "https://pngimg.com/uploads/bitcoin/bitcoin_PNG47.png"
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1.png",
+          mining_type: MiningType.find_by(acronym: 'PoW')
         },
         {
           description: "Ethereum",
           acronym: "ETH",
-          url_image: "https://w7.pngwing.com/pngs/268/1013/png-transparent-ethereum-eth-hd-logo-thumbnail.png"
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png",
+          mining_type: MiningType.all.sample
         },
         {
           description: "Dogecoin",
           acronym: "DOGE",
-          url_image: "https://media.cdnandroid.com/item_images/472233/imagen-dogecoin-wallet-0thumb.jpg"
-        }
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/74.png",
+          mining_type: MiningType.all.sample
+        },
+        {
+          description: "Tether",
+          acronym: "USDT",
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/825.png",
+          mining_type: MiningType.all.sample
+        },
+        {
+          description: "USD Coin",
+          acronym: "USDC",
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/3408.png",
+          mining_type: MiningType.all.sample
+        },
+        {
+          description: "BNB",
+          acronym: "BNB",
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/1839.png",
+          mining_type: MiningType.all.sample
+        },
+        {
+          description: "XRP",
+          acronym: "XRP",
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/52.png",
+          mining_type: MiningType.all.sample
+        },
+        {
+          description: "Binance USD",
+          acronym: "BUSD",
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/4687.png",
+          mining_type: MiningType.all.sample
+        },
+        {
+          description: "Cardano",
+          acronym: "ADA",
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/2010.png",
+          mining_type: MiningType.all.sample
+        },
+        {
+          description: "Solana",
+          acronym: "SOL",
+          url_image: "https://s2.coinmarketcap.com/static/img/coins/64x64/5426.png",
+          mining_type: MiningType.all.sample
+        },
       ]
 
       coins.each do |coin|
@@ -44,15 +89,15 @@ namespace :dev do
     show_spinner("Cadastrando tipos de mineração...") do
       mining_types = [
         {
-          name: "Proof of Work",
+          description: "Proof of Work",
           acronym: "PoW"
         },
         {
-          name: "Proof of Stake",
+          description: "Proof of Stake",
           acronym: "PoS"
         },
         {
-          name: "Proof of Capacity",
+          description: "Proof of Capacity",
           acronym: "Poc"
         }
       ]

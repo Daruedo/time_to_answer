@@ -1,7 +1,7 @@
 <%= form_with(model: coin, local: true) do |form| %>
   <% if coin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(coin.errors.count, "error") %> prohibited this coin from being saved:</h2>
+      <h2><%= pluralize(coin.errors.count, "error") %> proibiu esta moeda de ser salva:</h2>
 
       <ul>
       <% coin.errors.full_messages.each do |message| %>
@@ -12,18 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :descrição %>
     <%= form.text_field :description %>
   </div>
 
   <div class="field">
-    <%= form.label :acronym %>
+    <%= form.label :sigla %>
     <%= form.text_field :acronym %>
   </div>
 
   <div class="field">
-    <%= form.label :url_image %>
+    <%= form.label :imagem %>
     <%= form.text_field :url_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :mining_type_id %>
+    <%= form.select("mining_type_id", @mining_type_options, {include_blank: 'Selecione...'}) %>
   </div>
 
   <div class="actions">

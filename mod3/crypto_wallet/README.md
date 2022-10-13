@@ -1,24 +1,46 @@
-# README
+- Reverte ultimo schema realizado no banco
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+``` rails db:rollback ```
 
-Things you may want to cover:
+- Apaga scaffold
 
-* Ruby version
+``` rails destroy scaffold MiningType ```
 
-* System dependencies
+- Cria 
 
-* Configuration
+``` rails generate scaffold MiningType description:string acronym:string ```
 
-* Database creation
+- Migrate
 
-* Database initialization
+``` rails db:migrate ```
 
-* How to run the test suite
+- Task
 
-* Services (job queues, cache servers, search engines, etc.)
+``` rails dev:setup ```
 
-* Deployment instructions
+- Migração stand alone (adicionar coluna Tipo de Mineração na tabela Moedas )
+Associação belongs_to
 
-* ...
+``` rails generate migration AddMiningTypeToCoins mining_type:references ```
+&& Migrate
+
+- DB Console
+
+``` rails dbconsole ```
+Couldn't find database client: sqlite3.exe. Check your $PATH and try again.
+
+- Comandos console
+
+``` Coin.all ```
+``` Coin.all.sample ```
+``` Coin.find_by(acronym: 'BTC') ```
+``` Coin.all.map {|coin| coin.description} ```
+``` Coin.all.map(&:description) ```
+``` Coin.all.pluck(:description, :acronym) ```
+``` aaa ```
+
+- 
+
+``` aaa ```
+
+gem 'rails-i18n', '~> 5.1'
