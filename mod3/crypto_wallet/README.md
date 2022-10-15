@@ -55,6 +55,9 @@ cookies[:ruby] = "Curso de Ruby on Rails - Udemy [Cookie]"
 
 Na view:
 cookies[:ruby]
+
+No layout:
+<script>$.notify("Funcionou!!!", "success");</script>
 ```
 
 ---
@@ -67,7 +70,7 @@ gem 'rails-i18n', '~> 5.1'
 
 rails assets:precompile
 
-set RAILS_ENV=production || rails db:create db:migrate
+set RAILS_ENV=production || bundle exec rake db:drop:_unsafe db:create db:migrate RAILS_ENV=production
 
 rails s -e production
 

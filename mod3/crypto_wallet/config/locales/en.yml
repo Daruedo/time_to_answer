@@ -5,6 +5,14 @@ en:
     welcome: "This is Crypto Wallet, an app for you to register and track your cryptocurrencies."
     menu: "To get started, select one of the options below."
     confirm: "Do you really want to delete?"
+    coin:
+      create: "Coin was created successfully."
+      update: "Coin has been successfully updated."
+      destroy: "Coin was successfully deleted."
+    mining_type:
+      create: "Mining type was created successfully."
+      update: "Mining type has been successfully updated."
+      destroy: "Mining type was successfully deleted."
   portuguese: "Portuguese"
   english: "English"
   links:
@@ -32,3 +40,8 @@ en:
     mining_type:
       description: "Enter mining type"
       acronym: "Enter mining type acronym"
+  graph: "Dashboard"
+  coin_by_type: "Coins by Mining Type"
+  coin_by_date: "Coins by Creation Date"
+  previous: "Previous"
+  next: "Next"

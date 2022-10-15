@@ -2,7 +2,6 @@ class ApplicationController < ActionController::Base
     before_action :set_locale
 
     def set_locale
-        puts 'set_locale'
         if params[:locale]
             cookies[:locale] = params[:locale]
         end

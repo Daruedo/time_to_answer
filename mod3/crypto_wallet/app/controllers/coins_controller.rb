@@ -7,7 +7,7 @@ class CoinsController < ApplicationController
 
   # GET /coins or /coins.json
   def index
-    @coins = Coin.all
+    @coins = Coin.includes(:mining_type).paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /coins/1 or /coins/1.json
@@ -29,7 +29,7 @@ class CoinsController < ApplicationController
 
     respond_to do |format|
       if @coin.save
-        format.html { redirect_to coin_url(@coin), notice: "A moeda foi criada com sucesso." }
+        format.html { redirect_to coin_url(@coin), notice: t('messages.coin.create') }
         format.json { render :show, status: :created, location: @coin }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +42,7 @@ class CoinsController < ApplicationController
   def update
     respond_to do |format|
       if @coin.update(coin_params)
-        format.html { redirect_to coin_url(@coin), notice: "A moeda foi atualizada com sucesso." }
+        format.html { redirect_to coin_url(@coin), notice: t('messages.coin.update') }
         format.json { render :show, status: :ok, location: @coin }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,7 +56,7 @@ class CoinsController < ApplicationController
     @coin.destroy
 
     respond_to do |format|
-      format.html { redirect_to coins_url, notice: "A moeda foi apagada com sucesso." }
+      format.html { redirect_to coins_url, notice: t('messages.coin.destroy') }
       format.json { head :no_content }
     end
   end

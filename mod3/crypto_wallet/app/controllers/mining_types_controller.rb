@@ -3,7 +3,7 @@ class MiningTypesController < ApplicationController
 
   # GET /mining_types or /mining_types.json
   def index
-    @mining_types = MiningType.all
+    @mining_types = MiningType.paginate(:page => params[:page], :per_page => 5)
   end
 
   # GET /mining_types/1 or /mining_types/1.json
@@ -25,7 +25,7 @@ class MiningTypesController < ApplicationController
 
     respond_to do |format|
       if @mining_type.save
-        format.html { redirect_to mining_type_url(@mining_type), notice: "O tipo de mineração foi criado com sucesso." }
+        format.html { redirect_to mining_type_url(@mining_type), notice: t('messages.mining_type.create') }
         format.json { render :show, status: :created, location: @mining_type }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class MiningTypesController < ApplicationController
   def update
     respond_to do |format|
       if @mining_type.update(mining_type_params)
-        format.html { redirect_to mining_type_url(@mining_type), notice: "O tipo de mineração foi atualizado com sucesso." }
+        format.html { redirect_to mining_type_url(@mining_type), notice: t('messages.mining_type.update') }
         format.json { render :show, status: :ok, location: @mining_type }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class MiningTypesController < ApplicationController
     @mining_type.destroy
 
     respond_to do |format|
-      format.html { redirect_to mining_types_url, notice: "O tipo de mineração foi apagado com sucesso." }
+      format.html { redirect_to mining_types_url, notice: t('messages.mining_type.destroy') }
       format.json { head :no_content }
     end
   end

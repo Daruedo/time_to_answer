@@ -1,4 +1,8 @@
-<p id="notice"><%= notice %></p>
+<% if notice.present? %>
+  <div class="alert alert-success" role="alert" id="notice">
+    <%= notice %>
+  </div>
+<% end %>
 
 <div class="mt-2 p-5 bg-light border rounded-3">
   <h1><%= MiningType.model_name.human(count: @mining_types.count) %></h1>
@@ -30,4 +34,8 @@
   <%= link_to t('new.mining_type'), new_mining_type_path, class:"btn btn-primary" %>
 
   <%= link_to t('links.back'), :root, class:"btn btn-secondary" %>
+
+  <div class="container text-center">
+    <%= will_paginate @mining_types, class:"apple_pagination", previous_label: t('previous'), next_label: t('next') %>
+  </div>
 </div>
