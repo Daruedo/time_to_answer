@@ -15,4 +15,10 @@ module ApplicationHelper
             "Teste"
         end
     end
+
+    def toggle_chart_type(type)
+        return 'table' if type.to_s == 'chart'
+
+        'chart'
+    end
 end

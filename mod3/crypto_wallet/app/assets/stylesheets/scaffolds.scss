@@ -1,5 +1,5 @@
 body {
-  background-color: <%= Rails.env.development? ? '#F4FFFD' : '#B4BAE4' %>;
+  background-color: #FFF;
   color: #333;
   margin: 33px;
   font-family: verdana, arial, helvetica, sans-serif;

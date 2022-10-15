@@ -3,7 +3,7 @@ class MiningTypesController < ApplicationController
 
   # GET /mining_types or /mining_types.json
   def index
-    @mining_types = MiningType.paginate(:page => params[:page], :per_page => 5)
+    @mining_types = MiningType.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /mining_types/1 or /mining_types/1.json
@@ -48,13 +48,20 @@ class MiningTypesController < ApplicationController
   end
 
   # DELETE /mining_types/1 or /mining_types/1.json
-  def destroy
-    @mining_type.destroy
-
+  def destroy   
     respond_to do |format|
-      format.html { redirect_to mining_types_url, notice: t('messages.mining_type.destroy') }
-      format.json { head :no_content }
+      if can_destroy?
+        @mining_type.destroy
+        format.html { redirect_to mining_types_url, notice: t('messages.mining_type.destroy') }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to mining_types_url, alert: 'não é possível apagar, pois tem moedas' }
+      end
     end
+  end
+
+  def can_destroy?
+    !Coin.where(mining_type_id: @mining_type.id).limit(1).present?
   end
 
   private

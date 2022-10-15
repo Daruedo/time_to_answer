@@ -4,6 +4,12 @@
   </div>
 <% end %>
 
+<% if alert.present? %>
+  <div class="alert alert-danger" role="alert" id="notice">
+    <%= alert %>
+  </div>
+<% end %>
+
 <div class="mt-2 p-5 bg-light border rounded-3">
   <h1><%= MiningType.model_name.human(count: @mining_types.count) %></h1>
 

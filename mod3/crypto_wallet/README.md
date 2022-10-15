@@ -70,9 +70,15 @@ gem 'rails-i18n', '~> 5.1'
 
 rails assets:precompile
 
-set RAILS_ENV=production || bundle exec rake db:drop:_unsafe db:create db:migrate RAILS_ENV=production
+set RAILS_ENV=production
+bundle exec rake db:drop:_unsafe db:create db:migrate RAILS_ENV=production
+bundle exec rake assets:precompile RAILS_ENV=production
+bundle exec rake assets:precompile RAILS_ENV=production
 
 rails s -e production
+
+rails assets:precompile RAILS_ENV=production
+rails assets:clobber RAILS_ENV=production
 
 Para remover assets de produção quando voltar ao desenvolvimento:
 
@@ -83,3 +89,11 @@ yarn add notify-js-legacy
 yarn add popper.js
 
 yarn add bootstrap
+
+
+
+rails assets:clean RAILS_ENV=production
+
+rails assets:clobber RAILS_ENV=production
+
+bundle exec rake assets:precompile --trace RAILS_ENV=production

@@ -1,5 +1,11 @@
 pt-BR:
   current_locale: "Português do Brasil"
+  mining_type: 
+    description: "Tipo de mineração"
+  chart:
+    type_chart:
+      chart: "Visualizar por Grafico"
+      table: "Visualizar por Tabela"
   welcome: "Seja Bem-Vindo!"
   messages:
     welcome: "Este é a Crypto Wallet, um app para você cadastrar e rastrear suas criptomoedas."

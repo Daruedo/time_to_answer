@@ -1,0 +1,41 @@
+<div class="text-center mt-2 p-5 bg-light border rounded-3">
+    <h1 class="display-6"><%= t('graph') %></h1>
+    <div class="row">
+        <div class="col w-50 mx-1">
+             <div class="container-fluid">
+                <ul class="nav justify-content-start">
+                    <li class="nav-item">
+                        <% toggle_chart_type = toggle_chart_type(@type_chart)%>
+                        <%= link_to t("chart.type_chart.#{toggle_chart_type}"), root_path(type_chart: toggle_chart_type), class:"nav-link" %>
+                    </li>
+                </ul>
+            </div>
+
+            <p class="lead"><%= t('coin_by_type') %></p>
+            <% if  @type_chart == 'table' %>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col"><%= t('mining_type.description')%></th>
+                            <th scope="col"><%= "Qtd moedas" %></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% @coins.each do |key, value| %>
+                            <tr>
+                                <th scope="row"><%= key %></th>
+                                <td><%= value %></td>
+                            </tr>
+                        <% end %>
+                    </tbody>
+                </table>
+            <% else %>
+                <%= pie_chart @coins %>
+            <% end %>
+        </div>
+        <div class="col w-50 mx-1">
+            <p class="lead"><%= t('coin_by_date') %></p>
+            <%= line_chart @created_coin %>
+        </div>
+    </div>  
+</div>
