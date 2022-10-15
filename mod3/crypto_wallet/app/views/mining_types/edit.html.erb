@@ -1,6 +1,10 @@
-<h1>Editar tipo de mineração</h1>
+<div class="mt-2 p-5 bg-light border rounded-3">
+    <h1><%= t('editing.mining_type') %></h1>
 
-<%= render 'form', mining_type: @mining_type %>
+    <%= render 'form', mining_type: @mining_type %>
 
-<%= link_to 'Detalhes', @mining_type %> |
-<%= link_to 'Voltar', mining_types_path %>
+    <br>
+
+    <%= link_to t('links.details'), @mining_type, class:"btn btn-primary" %>
+    <%= link_to t('links.back'), mining_types_path, class:"btn btn-secondary" %>
+</div>

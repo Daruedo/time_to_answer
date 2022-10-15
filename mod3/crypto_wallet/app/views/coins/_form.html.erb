@@ -1,37 +1,31 @@
 <%= form_with(model: coin, local: true) do |form| %>
-  <% if coin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(coin.errors.count, "error") %> proibiu esta moeda de ser salva:</h2>
+  <%= render 'layouts/errors', object: @coin %>
 
-      <ul>
-      <% coin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :descrição %>
-    <%= form.text_field :description %>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, class:"form-control", placeholder: t('placeholders.coin.description') %>
   </div>
 
-  <div class="field">
-    <%= form.label :sigla %>
-    <%= form.text_field :acronym %>
+  <div class="form-group">
+    <%= form.label :acronym %>
+    <%= form.text_field :acronym, class:"form-control", placeholder: t('placeholders.coin.acronym') %>
   </div>
 
-  <div class="field">
-    <%= form.label :imagem %>
-    <%= form.text_field :url_image %>
+  <div class="form-group">
+    <%= form.label :url_image %>
+    <%= form.text_field :url_image, class:"form-control", placeholder:t('placeholders.coin.url_image') %>
   </div>
 
   <div class="field">
     <%= form.label :mining_type_id %>
-    <%= form.select("mining_type_id", @mining_type_options, {include_blank: 'Selecione...'}) %>
+    <%= form.select("mining_type_id", @mining_type_options, {include_blank:t('placeholders.coin.mining_type_id')}, class:"form-control") %>
   </div>
 
+  <br>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil, class:"btn btn-primary" %>
+    <%= link_to t('links.back'), coins_path, class:"btn btn-secondary" %>
   </div>
 <% end %>

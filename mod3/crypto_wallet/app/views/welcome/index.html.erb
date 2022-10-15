@@ -1,19 +1,11 @@
-<p>
-    <%= link_to 'Português', root_path(locale: 'pt-BR') %>
-</p>
-<p>
-    <%= link_to 'English', root_path(locale: 'en') %>
-</p>
-
-<h1>Seja Bem-Vindo!</h1>
-<h2><%= cookies[:curso] %></h2>
-<p>O idioma usado nessa aplicação é: <strong><%= t('actual_locale') %></strong></p>
-<p><%= I18n.t('hello') %></p>
-<p><strong>Data:</strong> <%= I18n.l(Date.today) =%></p>
-
-<%= render "menu" =%>
+<p id="notice"><%= notice %></p>
+<div class="mt-2 p-5 bg-light border rounded-3">
+    <h1 class="display-4"><%= t('welcome') %></h1>
+    <p class="lead"><%= t('messages.welcome') %></p>
+    <hr class="my-4">
+    <p><%= t('messages.menu') %></p>
+    <%= render "menu" =%>
+</div>
 
 <p>Você está em ambiente de <strong><%= rails_ambient =%></strong></p>
 
-<p>Eu sou uma variável de instância/sessão <%= @var =%></p>
-<p>Meu curso é o curso de <%= @curso =%></p>

@@ -43,4 +43,40 @@ Couldn't find database client: sqlite3.exe. Check your $PATH and try again.
 
 ``` aaa ```
 
+## Coisas que apaguei: 
+
+```
+I18n.l(Date.today)
+
+- Cookies
+
+No welcome controller:
+cookies[:ruby] = "Curso de Ruby on Rails - Udemy [Cookie]"
+
+Na view:
+cookies[:ruby]
+```
+
+---
+
 gem 'rails-i18n', '~> 5.1'
+
+''''
+----
+
+
+rails assets:precompile
+
+set RAILS_ENV=production || rails db:create db:migrate
+
+rails s -e production
+
+Para remover assets de produção quando voltar ao desenvolvimento:
+
+rails assets:clobber
+
+yarn add jquery
+yarn add notify-js-legacy
+yarn add popper.js
+
+yarn add bootstrap

@@ -1,27 +1,19 @@
 <%= form_with(model: mining_type, local: true) do |form| %>
-  <% if mining_type.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(mining_type.errors.count, "error") %> proibiu este tipo de mineração de ser salva:</h2>
+ <%= render 'layouts/errors', object: mining_type %>
 
-      <ul>
-      <% mining_type.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :descrição %>
-    <%= form.text_field :description %>
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_field :description, class:"form-control", placeholder:t('placeholders.mining_type.description') %>
   </div>
 
-  <div class="field">
-    <%= form.label :sigla %>
-    <%= form.text_field :acronym %>
+  <div class="form-group">
+    <%= form.label :acronym %>
+    <%= form.text_field :acronym, class:"form-control", placeholder:t('placeholders.mining_type.acronym') %>
   </div>
+
+  <br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit nil, class:"btn btn-primary" %>
   </div>
 <% end %>
