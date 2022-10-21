@@ -63,7 +63,7 @@ nodejs --version
 
 sudo apt-get install mysql-client mysql-server libmysqlclient-dev
 sudo mysql -u root -p
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'loktarogar';
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '********';
 FLUSH PRIVILEGES;
 
 sudo apt-get install postgresql postgresql-contrib libpq-dev
