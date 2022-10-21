@@ -1,3 +1,7 @@
+Material Theme
+Material Icon Theme
+Simple Ruby ERB
+
 - Reverte ultimo schema realizado no banco
 
 ``` rails db:rollback ```
@@ -92,8 +96,18 @@ yarn add bootstrap
 
 
 
+bundle exec rake db:drop:_unsafe db:create db:migrate RAILS_ENV=production
+
 rails assets:clean RAILS_ENV=production
 
 rails assets:clobber RAILS_ENV=production
 
 bundle exec rake assets:precompile --trace RAILS_ENV=production
+
+rails s -e production RAILS_SERVE_STATIC_FILES=true
+
+$
+
+RAILS_ENV=production rails db:drop:_unsafe db:create db:migrate
+
+RAILS_ENV=production rails assets:precompile
