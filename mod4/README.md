@@ -104,6 +104,3 @@ Pagina principal >> Area perfil do usuario
 Pagina principal >> Area Administrativa
 >> cadastrar novas questões
 >> verificar quantos inscritos o site possui
-
-
-

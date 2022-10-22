@@ -31,6 +31,29 @@ rails db:migrate
 
 rails g controller admins_backoffice/welcome index
 rails g controller profiles_backoffice/welcome index
+rails g controller admins_backoffice
+rails g controller profiles_backoffice
+
+rails d controller welcome
+rails g controller site/welcome index
+rails g controller site
+
+rails d devise Profile
+rails d controller profiles_backoffice/welcome
+rails d controller profiles_backoffice
+
+rails g devise User
+rails g devise:views users
+rails g controller users_backoffice/welcome index
+rails g controller users_backoffice
+
+rails db:drop:_unsafe db:create db:migrate
+
+rails g task dev setup
+
+#Gemfile
+gem 'tty-spinner'
+bundle install
 
 ---
 
