@@ -1,24 +1,39 @@
-# README
+Parar aplicação carregada em memória (2º plano):
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+spring status
+spring stop
 
-Things you may want to cover:
+sudo rm /vagrant/time_to_answer/tmp/pids/server.pid
 
-* Ruby version
+lsof -wni tcp:3000
 
-* System dependencies
+kill -9 $(lsof -i tcp:3000 -t)
 
-* Configuration
+cd public
+mkdir templates
+cd templates
+git clone https://github.com/ColorlibHQ/gentelella.git
+cd gentelella
+rm -rf .git
 
-* Database creation
+npm install --global yarn
 
-* Database initialization
+yarn add 
+yarn add bootstrap@4.6.0
+yarn add popper.js
+yarn add jquery@3.6.0
+yarn add jquery.easing@1.4.1
+yarn add @fortawesome/fontawesome-free@5.15.3
 
-* How to run the test suite
+yarn add bootstrap@4.3.1
+yarn add font-awesome@4.6.3
+yarn add nprogress
+yarn add malihu-custom-scrollbar-plugin
+yarn add fastclick
 
-* Services (job queues, cache servers, search engines, etc.)
+rails g controller AdminsBackoffice::Admins index
 
-* Deployment instructions
+yarn add bootstrap-growl-ifightcrime
 
-* ...
+rails g kaminari:views bootstrap4
+rails g kaminari:views bootstrap3 (bug)
