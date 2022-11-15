@@ -37,3 +37,11 @@ yarn add bootstrap-growl-ifightcrime
 
 rails g kaminari:views bootstrap4
 rails g kaminari:views bootstrap3 (bug)
+
+rails g model subject description:string
+rails g model question description:text subject:references
+rails g model answer description:text correct:boolean question:references
+
+rails g controller AdminsBackoffice/Subjects
+
+rails g controller AdminsBackoffice/Questions
