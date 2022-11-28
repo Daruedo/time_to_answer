@@ -45,3 +45,5 @@ rails g model answer description:text correct:boolean question:references
 rails g controller AdminsBackoffice/Subjects
 
 rails g controller AdminsBackoffice/Questions
+
+184
