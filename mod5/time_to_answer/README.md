@@ -77,3 +77,52 @@ Configurando DigitalOcean para deploy:
 ssh-keygen -t rsa
 
 cat ~/.ssh/id_rsa.pub
+
+rails g migration AddZipCodeToUserProfiles zip_code:string
+
+rails g controller users_backoffice/zip_code
+
+## Consumindo API via console (rails c)
+
+uri = URI("https://viacep.com.br/ws/01001000/json/")
+uri.scheme
+uri.host
+uri.path
+
+require 'net/http'
+
+Net::HTTP.get(uri)
+
+cep = ActiveSupport::JSON.decode(
+    Net::HTTP.get(
+        URI("https://viacep.com.br/ws/01001000/json/")
+    )
+)
+
+--
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install redis-server
+
+redis-cli
+ping
+
+sudo apt-get install default-jdk
+
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.3.0-amd64.deb
+wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.3.0-amd64.deb.sha512
+shasum -a 512 -c elasticsearch-7.3.0-amd64.deb.sha512
+sudo dpkg -i elasticsearch-7.3.0-amd64.deb
+
+ps -p 1
+systemd:
+sudo systemctl start elasticsearch.service
+
+curl http://localhost:9200
+
+sudo vim /etc/elasticsearch/elasticsearch.yml
+
+Question.reindex
+
+Finalizando

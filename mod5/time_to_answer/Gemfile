@@ -6,7 +6,8 @@ ruby '2.4.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
+gem 'pg', '~> 1.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -43,6 +44,17 @@ gem 'faker', '~> 2.12.0'
 gem 'kaminari'
 gem 'kaminari-i18n'
 gem "cocoon"
+gem "prawn-rails"
+gem 'prawn', '~> 2.2.2'
+gem 'ttfunk', '~> 1.6.2.1'
+gem 'pdf-core', '~> 0.7.0'
+gem 'redis', '~> 4.1.2'
+gem 'hiredis'
+gem 'connection_pool', '~> 2.2.5'
+gem 'trix'
+gem 'searchkick', '~> 4.1.0'
+gem 'elasticsearch', '~> 7.3.0'
+gem 'faraday', '~> 0.15.4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
